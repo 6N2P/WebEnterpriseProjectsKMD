@@ -8,5 +8,9 @@ namespace WebEnterpriseProjectsKMD.Controllers
         {
             return View();
         }
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }
