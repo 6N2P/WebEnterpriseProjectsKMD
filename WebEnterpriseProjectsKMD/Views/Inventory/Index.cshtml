@@ -1,6 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model WebEnterpriseProjectsKMD.ViewModels.InventoryViewModel;
 @{
     ViewData["Title"] = "Invebtory";
 }
@@ -31,5 +29,14 @@
             <td>Тест1</td>
             <td width="80%">Инветарный для тестирования </td>
         </tr>
+        @{
+            foreach (Inventory inventory in Model.inventories)
+            {
+                @Html<tr>
+                <td> @inventory.Number</td>
+                <td> @inventory.Name</td>
+                </tr>
+            }
+        }
     </tbody>
 </table>
