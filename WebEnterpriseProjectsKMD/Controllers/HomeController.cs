@@ -15,7 +15,7 @@ namespace WebEnterpriseProjectsKMD.Controllers
 
         public IActionResult Index()
         {
-            return View();
+             return View();            
         }
 
         public IActionResult Privacy()
