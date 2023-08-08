@@ -24,15 +24,11 @@
             <th>Описание</th>
         </tr>
     </thade>
-    <tbody>
-        <tr>
-            <td>Тест1</td>
-            <td width="80%">Инветарный для тестирования </td>
-        </tr>
+    <tbody>        
         @{
             foreach (Inventory inventory in Model.inventories)
             {
-                @Html<tr>
+                <tr>
                 <td> @inventory.Number</td>
                 <td> @inventory.Name</td>
                 </tr>

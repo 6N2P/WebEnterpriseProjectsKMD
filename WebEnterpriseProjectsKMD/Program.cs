@@ -1,11 +1,16 @@
+using WebEnterpriseProjectsKMD.Repository;
 
+using WebEnterpriseProjectsKMD.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+//для связи и нтерфейсов  и класов
+//builder.Services.AddTransient<IALLInvetorys, InventoryRepository>();
 
-
+builder.Services.AddMemoryCache();
+builder.Services.AddSession();
 
 var app = builder.Build();
 
