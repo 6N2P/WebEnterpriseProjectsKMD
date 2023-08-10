@@ -1,0 +1,33 @@
+﻿@model OrdersInventoryViewModel
+
+@{
+    ViewData["Title"] = "OrdersInvebtory";
+}
+<div class="text-center">
+    <h3 class="display-4">Заказы инвентарного </h3>
+</div>
+<table class="table-bordered"
+       border="1"
+       cellspacing="0"
+       cellpadding="5"
+       align="center"
+       width="100%">
+    <thade>
+        <tr>
+            <th  width="15%">Заказ №</th>
+            <th>Описание</th>
+        </tr>
+    </thade>
+    <tbody>
+        @{
+            foreach (Order order in Model.orders)
+            {
+                <tr>
+
+                    <td>  @order.Number  </td>
+                    <td> @order.Name</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

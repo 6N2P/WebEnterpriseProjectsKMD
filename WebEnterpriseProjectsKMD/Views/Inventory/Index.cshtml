@@ -1,4 +1,4 @@
-﻿@model WebEnterpriseProjectsKMD.ViewModels.InventoryViewModel;
+﻿@model InventoryViewModel;
 @{
     ViewData["Title"] = "Invebtory";
 }
@@ -20,7 +20,7 @@
        width="100%">
     <thade>
         <tr>
-            <th>Инвентарный №</th>
+            <th width="15%">Инвентарный №</th>
             <th>Описание</th>
         </tr>
     </thade>
@@ -29,7 +29,8 @@
             foreach (Inventory inventory in Model.inventories)
             {
                 <tr>
-                    <td> @inventory.Number</td>
+
+                    <td> <a class="nav-link" asp-controller="OrdersInventory" asp-action="Orders" asp-route-IdinventorySelect="@inventory.Id"> @inventory.Number </a> </td>
                     <td> @inventory.Name</td>
                 </tr>
             }

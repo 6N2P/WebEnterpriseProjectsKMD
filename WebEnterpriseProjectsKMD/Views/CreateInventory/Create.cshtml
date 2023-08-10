@@ -9,23 +9,24 @@
 
 <form asp-action="Create" method="post">
 
-<div  align="center">
-    <label asp-for="Number">Номер инвентарного</label>
-    @*Номер инвентарного: @Html.TextBox("nuberString")*@
-    <div>
-        <input  asp-for="Number" class="form-control"/>
-        <span asp-validation-for="Number" class="text-danger"></span>
+    <div align="center">
+        <label asp-for="Number">Номер инвентарного</label>     
+        <div>
+            <input asp-for="Number" class="form-control" style="margin:10px" />
+            <span asp-validation-for="Number" class="text-danger"></span>
+        </div>
     </div>
-</div>
 
-<div align="center">
-    <label asp-for="Name">Имя инвентарного</label>
-    @*Имя инвентарного: @Html.TextBox("NameString")*@
-    <div>
-        <input asp-for="Name" class="form-control" />
-        <span asp-validation-for="Name" class="text-danger"></span>
+    <div align="center">
+        <label asp-for="Name">Имя инвентарного</label>        
+        <div>
+            <input asp-for="Name" class="form-control" style="margin:10px" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
     </div>
-</div>
+    
 
-<p align="center"><input type="submit" value="Создать" /> </p>
+    <p align="center">
+        <input type="submit" value="Создать" style="margin:10px" />
+    </p>
 </form>
