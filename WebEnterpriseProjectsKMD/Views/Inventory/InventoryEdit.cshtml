@@ -1,0 +1,25 @@
+﻿@model Inventory
+
+@{
+    ViewData["Title"] = "InvetoryEdit";
+}
+<div class="text-center">
+    <h1 class="display-4">Редактировать инвентарный №@ViewBag.Code</h1>
+</div>
+<div>
+    <form asp-action="InventoryEdit" method="post">
+      
+
+        <div align="center">
+            <label asp-for="Name">Название инвентарного</label>
+            <div>
+                <input asp-for="Name" class="form-control" style="margin:10px" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+        <input asp-for="Id" type="number" value="@ViewBag.Id" class="visually-hidden" /><br />
+        <p align="center">
+            <input type="submit" value="Редактировать" style="margin:10px" />
+        </p>
+    </form>
+</div>

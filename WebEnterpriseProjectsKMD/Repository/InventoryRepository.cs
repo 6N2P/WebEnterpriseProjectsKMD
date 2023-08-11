@@ -25,9 +25,16 @@ namespace WebEnterpriseProjectsKMD.Repository
 
         public Inventory GetInventory(int inventoryId) => _appDBcontext.Inventories.Where(x => x.Id == inventoryId).FirstOrDefault();
 
-        public void UpdateInventory(int id, string n)
+        public void EditInventory(int id, string name)
         {
-            throw new NotImplementedException();
+            var inv = _appDBcontext.Inventories.Where(x=>x.Id == id).FirstOrDefault();
+            if (inv != null)
+            {
+                inv.Name = name;
+                inv.DateCreate = DateOnly.FromDateTime(DateTime.Now);
+                _appDBcontext.SaveChanges();
+            }
+           
         }
     }
 }

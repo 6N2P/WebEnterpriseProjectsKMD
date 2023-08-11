@@ -9,11 +9,13 @@ namespace WebEnterpriseProjectsKMD.Controllers
     {
         private KMDContext db = new KMDContext();
         private IALLInvetorys _inventorys;
+        private IInvetorysWorker _invetorysWorker;
 
         public InventoryController()
         {
-
-            _inventorys = new InventoryRepository(db);
+            InventoryRepository inventoryRepository = new InventoryRepository(db);
+            _inventorys = inventoryRepository;
+            _invetorysWorker = inventoryRepository;
         }
         //public InventoryController(IALLInvetorys invetorys)
         //{
@@ -33,5 +35,21 @@ namespace WebEnterpriseProjectsKMD.Controllers
         {
             return View();
         }
+
+        public IActionResult InventoryEdit(int idInventory, string codeInventory)
+        {
+            ViewBag.Id = idInventory;
+            ViewBag.Code = codeInventory;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult InventoryEdit(Inventory inventory)
+        {
+            _invetorysWorker.EditInventory(inventory.Id, inventory.Name);
+            return  RedirectToAction("Index");
+        }
+
+
     }
 }

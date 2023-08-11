@@ -15,7 +15,7 @@ namespace WebEnterpriseProjectsKMD.Controllers
         private readonly KMDContext _appDB;
         private int _idSelectInventory;
 
-        private IdInventory _idInventory;
+       
 
         public OrdersInventoryController()
         {
@@ -23,8 +23,6 @@ namespace WebEnterpriseProjectsKMD.Controllers
             _allOrders = new OrderRepository(_appDB);
             _ordersWorker = new OrderRepository(_appDB);
           
-           
-            _idInventory = new IdInventory();
         }
         public IActionResult Orders(int IdinventorySelect)
         {
@@ -42,8 +40,6 @@ namespace WebEnterpriseProjectsKMD.Controllers
         public IActionResult CreateOrder(int IdinventorySelect)
         {           
             ViewBag.Id = IdinventorySelect;
-
-            _idInventory.Id = IdinventorySelect;
             return View(); 
         }
 
@@ -52,17 +48,15 @@ namespace WebEnterpriseProjectsKMD.Controllers
         {
             
             _ordersWorker.CreateOrdery(order);
-            return RedirectToAction("Complete");
+            return RedirectToAction("Complete",new { IdinventorySelect = order.InvenoryId } );
         }
 
-        public IActionResult Complete()
-        {
+        public IActionResult Complete(int IdinventorySelect)
+        {            
+            ViewBag.Id = IdinventorySelect;
             ViewBag.Message = "Заказ успешно создан";
             return View();
         }
     }
-    public class IdInventory
-    {
-        public int Id;
-    }
+   
 }

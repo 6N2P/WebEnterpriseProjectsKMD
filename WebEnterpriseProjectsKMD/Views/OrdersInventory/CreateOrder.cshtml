@@ -6,8 +6,7 @@
     <h3 class="display-4">Создать заказ в инвентарном</h3>
 </div>
 
-<p>
-   
+<p>   
     <a class="nav-link" asp-controller="OrdersInventory" asp-action="Orders" asp-route-IdinventorySelect="@ViewBag.Id"> Вернутся к списку заказов </a>
 </p>
 
@@ -28,7 +27,9 @@
             <span asp-validation-for="Name" class="text-danger"></span>
         </div>
     </div>
+
     <input asp-for="InvenoryId" type="number" value="@ViewBag.Id" class="visually-hidden" /><br />
+
     <p align="center">
         <input type="submit" value="Создать" style="margin:10px" />
     </p>

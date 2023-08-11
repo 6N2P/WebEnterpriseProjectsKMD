@@ -23,9 +23,11 @@
        width="100%">
     <thade>
         <tr>
-            <th  width="15%">Заказ №</th>
-            <th>Описание</th>
-            <th width="15%">Дата создания</th>
+            <th width="10%">Заказ №</th>
+            <th>Название</th>
+            <th width="10%">Дата создания</th>
+            <th width="10%">Редактировать</th>
+            <th width="5%">Удалить</th>
         </tr>
     </thade>
     <tbody>
@@ -36,6 +38,8 @@
                     <td> @order.Number </td>
                     <td> @order.Name </td>
                     <td> @order.DateCreate</td>
+                    <td>  <input type="submit" value="Редактировать" /></td>
+                    <td>  <input type="submit" value="Удалить" /></td>
                 </tr>
             }
         }

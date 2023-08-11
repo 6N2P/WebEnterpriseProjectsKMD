@@ -20,9 +20,11 @@
        width="100%">
     <thade>
         <tr>
-            <th width="15%">Инвентарный №</th>
+            <th width="10%">Номер Инв.</th>
             <th>Описание</th>
             <th width="10%">Дата создания</th>
+            <th width="10%">Редактировать</th>
+            <th width="5%">Удалить</th>
         </tr>
     </thade>
     <tbody>        
@@ -30,10 +32,26 @@
             foreach (Inventory inventory in Model.inventories)
             {
                 <tr>
-
-                    <td> <a class="nav-link" asp-controller="OrdersInventory"  asp-action="Orders" asp-route-IdinventorySelect="@inventory.Id"> @inventory.Number </a> </td>
+                    <td>
+                        <a class="nav-link"
+                           asp-controller="OrdersInventory"
+                           asp-action="Orders"
+                           asp-route-IdinventorySelect="@inventory.Id">
+                            @inventory.Number
+                        </a>
+                    </td>
                     <td> @inventory.Name</td>
                     <td>@inventory.DateCreate</td>
+                    <td>
+                        <a class="nav-link"
+                           asp-controller="Inventory"
+                           asp-action="InventoryEdit"
+                           asp-route-idInventory="@inventory.Id"
+                           asp-route-codeInventory="@inventory.Number">
+                            Редоктировать
+                        </a>
+                    </td>
+                    <td>  <input type="submit" value="Удалить" /></td>
                 </tr>
             }
         }
