@@ -14,7 +14,7 @@ namespace WebEnterpriseProjectsKMD.Repository
 
         public void CreateInventory(Inventory inventory)
         {
-           _appDBcontext.Inventories.Add(inventory);
+            _appDBcontext.Inventories.Add(inventory);
             _appDBcontext.SaveChanges();
         }
 

@@ -1,0 +1,35 @@
+﻿@model Order
+@{
+    ViewData["Title"] = "CreateOrder";
+}
+<div class="text-center">
+    <h3 class="display-4">Создать заказ в инвентарном</h3>
+</div>
+
+<p>
+   
+    <a class="nav-link" asp-controller="OrdersInventory" asp-action="Orders" asp-route-IdinventorySelect="@ViewBag.Id"> Вернутся к списку заказов </a>
+</p>
+
+<form asp-action="CreateOrder" method="post">
+
+    <div align="center">
+        <label asp-for="Number">Номер Заказа</label>
+        <div>
+            <input asp-for="Number" class="form-control" style="margin:10px" />
+            <span asp-validation-for="Number" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div align="center">
+        <label asp-for="Name">Название заказа</label>
+        <div>
+            <input asp-for="Name" class="form-control" style="margin:10px" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+    </div>
+    <input asp-for="InvenoryId" type="number" value="@ViewBag.Id" class="visually-hidden" /><br />
+    <p align="center">
+        <input type="submit" value="Создать" style="margin:10px" />
+    </p>
+</form>

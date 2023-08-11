@@ -2,7 +2,7 @@
 
 namespace WebEnterpriseProjectsKMD.Repository
 {
-    public class OrderRepository : IALLOrders
+    public class OrderRepository : IALLOrders, IOrdersWorker
     {
         private readonly KMDContext _appDBcontext;
 
@@ -13,7 +13,22 @@ namespace WebEnterpriseProjectsKMD.Repository
 
         public IEnumerable<Order> Orders => _appDBcontext.Orders;
 
+        public void CreateOrdery(Order order)
+        {
+            _appDBcontext.Orders.Add(order);
+            _appDBcontext.SaveChanges();
+        }
+
+        public void DeleteOrder(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Order> GetOrdersFromInventory(int inventoryId) => _appDBcontext.Orders.Where(x=>x.InvenoryId == inventoryId);
-        
+
+        public void UpdateOrder(int id, string n)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

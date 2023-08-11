@@ -22,6 +22,7 @@
         <tr>
             <th width="15%">Инвентарный №</th>
             <th>Описание</th>
+            <th width="10%">Дата создания</th>
         </tr>
     </thade>
     <tbody>        
@@ -30,8 +31,9 @@
             {
                 <tr>
 
-                    <td> <a class="nav-link" asp-controller="OrdersInventory" asp-action="Orders" asp-route-IdinventorySelect="@inventory.Id"> @inventory.Number </a> </td>
+                    <td> <a class="nav-link" asp-controller="OrdersInventory"  asp-action="Orders" asp-route-IdinventorySelect="@inventory.Id"> @inventory.Number </a> </td>
                     <td> @inventory.Name</td>
+                    <td>@inventory.DateCreate</td>
                 </tr>
             }
         }

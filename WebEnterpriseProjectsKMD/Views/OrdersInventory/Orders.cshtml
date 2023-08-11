@@ -8,7 +8,7 @@
 </div>
 
 <p>
-    <a href="">Создать новый заказ</a>
+    <a class="nav-link" asp-controller="OrdersInventory" asp-action="CreateOrder" asp-route-IdinventorySelect="@ViewBag.Id"> Создать заказ </a>
 </p>
 
 <p align="center">
@@ -25,6 +25,7 @@
         <tr>
             <th  width="15%">Заказ №</th>
             <th>Описание</th>
+            <th width="15%">Дата создания</th>
         </tr>
     </thade>
     <tbody>
@@ -34,6 +35,7 @@
                 <tr>
                     <td> @order.Number </td>
                     <td> @order.Name </td>
+                    <td> @order.DateCreate</td>
                 </tr>
             }
         }
