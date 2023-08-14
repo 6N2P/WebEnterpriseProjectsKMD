@@ -57,6 +57,21 @@ namespace WebEnterpriseProjectsKMD.Controllers
             ViewBag.Message = "Заказ успешно создан";
             return View();
         }
+
+        public IActionResult OrderEdit(int idInventory, int idOrder, string codeOrder)
+        {
+            ViewBag.InventoryId = idInventory;
+            ViewBag.OrderId = idOrder;
+            ViewBag.Code = codeOrder;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult OrderEdit(Order order)
+        {
+            _ordersWorker.EditOrder(order.Id, order.Name);
+            return RedirectToAction("Orders",new { IdinventorySelect = order.InvenoryId });
+        }
     }
    
 }

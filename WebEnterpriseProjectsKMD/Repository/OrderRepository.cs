@@ -26,9 +26,11 @@ namespace WebEnterpriseProjectsKMD.Repository
 
         public IEnumerable<Order> GetOrdersFromInventory(int inventoryId) => _appDBcontext.Orders.Where(x=>x.InvenoryId == inventoryId);
 
-        public void UpdateOrder(int id, string n)
+        public void EditOrder(int id, string name)
         {
-            throw new NotImplementedException();
+            var order = _appDBcontext.Orders.FirstOrDefault(x=>x.Id == id);
+            order.Name= name;
+            _appDBcontext.SaveChanges();
         }
     }
 }

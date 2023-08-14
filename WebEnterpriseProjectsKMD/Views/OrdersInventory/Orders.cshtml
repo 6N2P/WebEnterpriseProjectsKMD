@@ -38,7 +38,16 @@
                     <td> @order.Number </td>
                     <td> @order.Name </td>
                     <td> @order.DateCreate</td>
-                    <td>  <input type="submit" value="Редактировать" /></td>
+                    <td>
+                        <a class="nav-link"
+                           asp-controller="OrdersInventory"
+                           asp-action="OrderEdit"
+                           asp-route-idInventory="@order.InvenoryId"
+                           asp-route-idOrder="@order.Id"
+                           asp-route-codeOrder="@order.Number" >
+                            Редоктировать
+                        </a>
+                    </td>
                     <td>  <input type="submit" value="Удалить" /></td>
                 </tr>
             }

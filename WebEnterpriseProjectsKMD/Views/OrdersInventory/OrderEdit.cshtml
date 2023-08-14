@@ -1,0 +1,26 @@
+﻿@model Order
+
+@{
+    ViewData["Title"] = "OrderEdit";
+}
+<div class="text-center">
+    <h1 class="display-4">Редактировать заказ №@ViewBag.Code</h1>
+</div>
+<div>
+    <form asp-action="OrderEdit" method="post">
+
+
+        <div align="center">
+            <label asp-for="Name">Название заказа</label>
+            <div>
+                <input asp-for="Name" class="form-control" style="margin:10px" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+        <input asp-for="Id" type="number" value="@ViewBag.OrderId" class="visually-hidden" /><br />
+        <input asp-for="InvenoryId" type="number" value="@ViewBag.InventoryId" class="visually-hidden" /><br />
+        <p align="center">
+            <input type="submit" value="Редактировать" style="margin:10px" />
+        </p>
+    </form>
+</div>

@@ -7,21 +7,17 @@ namespace WebEnterpriseProjectsKMD.Controllers
 {
     public class InventoryController : Controller
     {
-        private KMDContext db = new KMDContext();
+        private KMDContext db;
         private IALLInvetorys _inventorys;
         private IInvetorysWorker _invetorysWorker;
 
         public InventoryController()
         {
+            db = new KMDContext();
             InventoryRepository inventoryRepository = new InventoryRepository(db);
             _inventorys = inventoryRepository;
             _invetorysWorker = inventoryRepository;
-        }
-        //public InventoryController(IALLInvetorys invetorys)
-        //{
-
-        //    _inventorys = invetorys;
-        //}
+        }       
 
         public IActionResult Index()
         {
