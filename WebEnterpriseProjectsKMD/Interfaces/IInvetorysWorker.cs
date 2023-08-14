@@ -4,6 +4,6 @@
     {
         public void CreateInventory(Inventory inventory);
         public void EditInventory(int id,string n);
-        public void DeleteInventory(int id);
+        public void DeleteInventoryAndAllLinks(int id);
     }
 }

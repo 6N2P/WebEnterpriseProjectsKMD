@@ -52,10 +52,11 @@ namespace WebEnterpriseProjectsKMD.Controllers
             ViewBag.Code = codeInventory;
             return View();
         }
+
         [HttpPost]
         public IActionResult DeletInventory(Inventory inventory)
         {
-            _invetorysWorker.DeleteInventory(inventory.Id);
+            _invetorysWorker.DeleteInventoryAndAllLinks(inventory.Id);
             return RedirectToAction("Index");
         }
     }
