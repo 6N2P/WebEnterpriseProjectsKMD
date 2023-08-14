@@ -46,6 +46,17 @@ namespace WebEnterpriseProjectsKMD.Controllers
             return  RedirectToAction("Index");
         }
 
-
+        public IActionResult DeletInventory(int idInventory, string codeInventory)
+        {
+            ViewBag.InventoryId=idInventory;
+            ViewBag.Code = codeInventory;
+            return View();
+        }
+        [HttpPost]
+        public IActionResult DeletInventory(Inventory inventory)
+        {
+            _invetorysWorker.DeleteInventory(inventory.Id);
+            return RedirectToAction("Index");
+        }
     }
 }

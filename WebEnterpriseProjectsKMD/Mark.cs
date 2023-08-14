@@ -13,7 +13,7 @@ namespace WebEnterpriseProjectsKMD
         public double? TotalWeight { get; set; }
         public double? Area { get; set; }
         public double? TotalArea { get; set; }
-        public double OrderId { get; set; }
+        public int OrderId { get; set; }
         public int? MetizId { get; set; }
         public int? AmountMetiz { get; set; }
         public bool? IsWelding { get; set; }

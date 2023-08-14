@@ -1,0 +1,18 @@
+﻿@model Inventory
+
+@{
+    ViewData["Title"] = "DeletInventory";
+}
+<div class="text-center">
+    <h1 class="display-4">Вы уверенны что хотите удалить инвентарный№@ViewBag.Code</h1>
+</div>
+<div>
+    <form asp-action="DeletInventory" method="post">
+
+        <input asp-for="Id" type="number" value="@ViewBag.InventoryId" class="visually-hidden" /><br />
+      
+        <p align="center">
+            <input type="submit" value="Удалить" style="margin:10px" />
+        </p>
+    </form>
+</div>
