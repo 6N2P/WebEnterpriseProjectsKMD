@@ -48,7 +48,16 @@
                             Редоктировать
                         </a>
                     </td>
-                    <td>  <input type="submit" value="Удалить" /></td>
+                    <td>
+                        <a class="nav-link"
+                           asp-controller="OrdersInventory"
+                           asp-action="DeletOrder"
+                           asp-route-idInventory="@order.InvenoryId"
+                           asp-route-idOrder="@order.Id"
+                           asp-route-codeOrder="@order.Number">
+                            Удалить
+                        </a>
+                    </td>
                 </tr>
             }
         }

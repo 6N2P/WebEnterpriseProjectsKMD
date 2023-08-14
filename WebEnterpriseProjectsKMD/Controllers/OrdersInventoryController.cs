@@ -72,6 +72,20 @@ namespace WebEnterpriseProjectsKMD.Controllers
             _ordersWorker.EditOrder(order.Id, order.Name);
             return RedirectToAction("Orders",new { IdinventorySelect = order.InvenoryId });
         }
+
+        public IActionResult DeletOrder(int idInventory,int idOrder, string codeOrder)
+        {
+            ViewBag.OrderId = idOrder;
+            ViewBag.InventoryId = idInventory;
+            ViewBag.Code = codeOrder;
+            return View();
+        }
+        [HttpPost]
+        public IActionResult DeletOrder(Order order)
+        {
+            _ordersWorker.DeleteOrder(order.Id);
+            return RedirectToAction("Orders", new { IdinventorySelect = order.InvenoryId });
+        }
     }
    
 }
